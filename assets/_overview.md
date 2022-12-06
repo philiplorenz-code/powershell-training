@@ -6,6 +6,7 @@
 
 **[PS Gallery](https://www.powershellgallery.com)**
 
-**[PS Best Practices]([https://www.powershellgallery.com)](https://www.scriptrunner.com/en/blog/5-powershell-scripting-best-practices/)**
+**[PS Best Practices](https://www.scriptrunner.com/en/blog/5-powershell-scripting-best-practices/)**
+
 
 ---
