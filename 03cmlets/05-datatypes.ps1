@@ -124,6 +124,8 @@ $HashTable += @{"localhost" = "127.0.0.1" }
 $HashTable.localhost
 $HashTable[0] # Geht nicht, da KEINE Indizierung!
 
+# Keys und Vals
+$HashTable.Keys
 
 # Hashtable Params
 $params = @{

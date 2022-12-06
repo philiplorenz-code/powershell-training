@@ -1,2 +1,2 @@
-#TODO WhatIf Parameter unterbringen
--WhatIf
+#WhatIf Parameter
+New-Item "test" -ItemType Directory -WhatIf

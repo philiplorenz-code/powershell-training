@@ -8,5 +8,6 @@
 
 **[PS Best Practices](https://www.scriptrunner.com/en/blog/5-powershell-scripting-best-practices/)**
 
+**[VSCode ShortCuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)**
 
 ---
