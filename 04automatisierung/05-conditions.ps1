@@ -20,6 +20,9 @@ else {
 }
 
 
+
+
+
 # Weitere Vergleichsoperatoren:
 
 # Zahlen

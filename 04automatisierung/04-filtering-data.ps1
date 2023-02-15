@@ -19,3 +19,22 @@ $AllFiles   | Where-Object {$_.Extension -eq ".log"} `
             # Selektiert die Ausgabe nach einen gewissen Attribut (und einem ausgewählten Wert)
             # Legt die anzuzeigenden Attribute fest (* steht dabei für alle Attribute)
             # Möglichkeit sich das Ergebnis in einem grafischen Interface anzeigen zu lassen
+
+
+# Hier erstellen wir eine Liste mit Prozessen
+$processes = Get-Process
+
+# Hier filtern wir die Prozesse nach Namen
+$filteredProcesses = $processes | Where-Object { $_.Name -eq "notepad" }
+Write-Output "Prozesse mit Namen 'notepad':"
+Write-Output $filteredProcesses
+
+# Hier filtern wir die Prozesse nach Arbeitsspeicher-Nutzung
+$filteredProcesses = $processes | Where-Object { $_.WorkingSet -gt 100MB }
+Write-Output "Prozesse mit mehr als 100 MB Arbeitsspeicher-Nutzung:"
+Write-Output $filteredProcesses
+
+# Hier filtern wir die Prozesse nach CPU-Nutzung
+$filteredProcesses = $processes | Where-Object { $_.TotalProcessorTime.TotalSeconds -gt 10 }
+Write-Output "Prozesse mit mehr als 10 Sekunden CPU-Nutzung:"
+Write-Output $filteredProcesses

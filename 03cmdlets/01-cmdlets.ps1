@@ -40,5 +40,8 @@ Test-Connection -ComputerName 8.8.8.8
 # Prüfen, ob ein Pfad auf dem FileSystem existiert
 Test-Path -Path "C:\Users\Administrator\PowerShell\Folder2"
 
+# Inhalt einer Datei auslesen
+Get-Content -Path ".\assets\test.txt"
+
 # ExecutionPolicy setzen
 Set-ExecutionPolicy -Unrestricted

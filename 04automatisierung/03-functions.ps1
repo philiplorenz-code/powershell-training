@@ -21,22 +21,43 @@ Function Get-PSVersion {
 }
 
 
-function Write-Log {
-  [CmdletBinding()]
+function Get-ServiceStatus {
   param(
-      [Parameter()]
-      [ValidateNotNullOrEmpty()]
-      [string]$Message,
-
-      [Parameter()]
-      [ValidateNotNullOrEmpty()]
-      [ValidateSet('Information','Warning','Error')]
-      [string]$Severity = 'Information'
+      [string]$ServiceName
   )
 
-  [pscustomobject]@{
-      Time = (Get-Date -f g)
-      Message = $Message
-      Severity = $Severity
-  } | Export-Csv -Path "$env:Temp\LogFile.csv" -Append -NoTypeInformation
+  $service = Get-Service -Name $ServiceName
+  $status = $service.Status
+
+  return "$ServiceName ist aktuell im Status $status."
 }
+
+# Hier rufen wir die Funktion auf
+$status = Get-ServiceStatus -ServiceName "wuauserv"
+
+
+
+# Scopes
+function Get-LocalVariable {
+  $localVariable = "Ich bin eine lokale Variable."
+  Write-Output $localVariable
+}
+
+function Get-GlobalVariable {
+  Write-Output $global:globalVariable
+}
+
+$global:globalVariable = "Ich bin eine globale Variable."
+
+# Hier rufen wir die Funktion Get-LocalVariable auf
+Get-LocalVariable
+
+# Hier versuchen wir, die lokale Variable auszugeben
+Write-Output $localVariable
+
+# Hier rufen wir die Funktion Get-GlobalVariable auf
+Get-GlobalVariable
+
+# Hier geben wir die globale Variable aus
+Write-Output $global:globalVariable
+

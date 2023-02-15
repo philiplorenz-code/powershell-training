@@ -1,5 +1,4 @@
 # Strings = einfache Folge von Zeichenketten, erkennbar an Anführungszeichen
-
 "Ich bin ein String"
 'Ich bin ein String'
 
@@ -18,8 +17,6 @@ $string1
 $string1++
 $string3 = $string1 + $string2
 $string3
-
-$ErrorMessage = "Keine Berechtigungen auf Partition C: !"
 
 
 #############################################################
