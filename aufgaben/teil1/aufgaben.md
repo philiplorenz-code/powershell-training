@@ -1,0 +1,3 @@
+1. Erstelle ein PowerShell-Script, der alle laufenden Dienste auf dem lokalen Computer auflistet, deren Name das Wort "net" enthält.
+2. Erstelle ein PowerShell-Script, der den Status eines bestimmten Dienstes (z.B. "wuauserv") auf dem lokalen Computer prüft und diesen startet, wenn er nicht läuft.
+3. Erstelle ein PowerShell-Script, der alle Benutzerkonten auf dem lokalen Computer auflistet, deren Passwörter nie ablaufen. Gib die Benutzernamen und die Beschreibung der Konten aus.
