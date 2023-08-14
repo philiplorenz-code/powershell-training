@@ -4,6 +4,15 @@ $PSVersionTable
 $null; $true; $false;
 $PROFILE
 
+## Umgebungsvariablen
+Get-ChildItem env:
+$env:USERPROFILE
+$env:USERNAME
+$env:PSModulepath
+$env:APPDATA
+$env:COMPUTERNAME
+$env:HOMEPATH
+
 # Werte in Variablen speichern Allgemein
 $einevariable = 1
 $ergebnis = 5 + 5

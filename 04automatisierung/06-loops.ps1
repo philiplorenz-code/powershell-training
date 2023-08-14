@@ -52,4 +52,4 @@ do {
 while (Test-Connection -ComputerName adserver01 -Count 1 -Quiet) {
     Start-Sleep -Seconds 2
     Write-Output "Host Rebooting.."
-} 
+}

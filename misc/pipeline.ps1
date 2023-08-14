@@ -1,3 +1,12 @@
+# Ohne Pipeline
+$content = Get-Content "C:\logs\error.log"
+Out-File -InputObject $content -FilePath "C:\backup\error_backup.log"
+
+# Mit Pipeline
+Get-Content "C:\logs\error.log" | Out-File "C:\backup\error_backup.log"
+
+
+
 # Funktion 1: Generiert Zahlen von 1 bis 5
 function Get-Numbers {
   1..5
@@ -33,3 +42,26 @@ function Test-IsEven {
 
 # Verwenden der Pipeline
 Get-Numbers | Get-Squares | Test-IsEven
+
+
+# Begin, Process, End
+function Get-TotalValue {
+  param(
+      [Parameter(ValueFromPipeline=$true)]
+      [int]$Number
+  )
+
+  begin {
+      $total = 0
+  }
+
+  process {
+      $total += $Number
+  }
+
+  end {
+      "The total sum is: $total"
+  }
+}
+
+1..5 | Get-TotalValue  # Gibt "The total sum is: 15" zurück

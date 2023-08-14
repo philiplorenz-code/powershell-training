@@ -1,15 +1,6 @@
 Enable-PSRemoting -Force -SkipNetworkProfileCheck
 Set-Item WSMan:\localhost\Client\TrustedHosts -Value "10.3.7.104" -Force
 
-# TODO: selbst auf allen machen
-<#
-  10.3.7.101 <-> 10.3.7.102
-  10.3.7.103 <-> 10.3.7.104
-  10.3.7.105 <-> 10.3.7.106
-  10.3.7.107 <-> 10.3.7.108
-  10.3.7.109 <-> 10.3.7.110
-#>
-
 # Remote-fähige CMDlets finden:
 Get-Command -ParameterName ComputerName
 

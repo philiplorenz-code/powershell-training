@@ -1,29 +1,34 @@
-# Zielcomputer-Name
-$RemoteComputer = "RemoteComputerName"
+$ErrorActionPreference = "Stop" # Stopt die Ausführung bei Fehlern
 
 try {
-    # Versucht, eine Verbindung zum Zielcomputer herzustellen
-    $DiskInfo = Get-WmiObject -Class Win32_LogicalDisk -ComputerName $RemoteComputer -ErrorAction Stop
-
-    # Ausgabe der Festplatteninformationen
-    foreach ($Disk in $DiskInfo) {
-        $FreeSpaceGB = [Math]::Round($Disk.FreeSpace / 1GB, 2)
-        $SizeGB = [Math]::Round($Disk.Size / 1GB, 2)
-        Write-Host "Laufwerk $($Disk.DeviceID): Freier Speicherplatz $FreeSpaceGB GB von $SizeGB GB"
-    }
-} catch [System.Runtime.InteropServices.COMException] {
-    # Behandlung von Verbindungsproblemen
-    Write-Host "Es konnte keine Verbindung zum Computer '$RemoteComputer' hergestellt werden. Bitte überprüfe die Verbindung und den Computernamen." -ForegroundColor Red
-} catch {
-    # Behandlung anderer Fehler
-    Write-Host "Ein unerwarteter Fehler ist aufgetreten: $($_.Exception.Message)" -ForegroundColor Red
-} finally {
-    # Abschließende Aktionen, z. B. Protokollierung oder Bereinigung
-    Write-Host "Fertig mit der Verarbeitung von '$RemoteComputer'."
+    Get-Item "nonexistentfile.txt" -ErrorAction Stop
+}
+catch {
+    Write-Host "Ein Fehler ist aufgetreten: $_"
+}
+finally {
+    Write-Host "Das wurde nach Try und Catch ausgeführt"
 }
 
 
-# Exception-Type herausfinden:
-$error[0].exception.gettype().fullname
-# Liste von Exception-Types:
-# https://powershellexplained.com/2017-04-07-all-dotnet-exception-list/#systemruntimeinteropservicescomexception
+# Throw - eigene Fehler werfen:
+if (-not (Test-Path "somefile.txt")) {
+    throw "Die Datei somefile.txt existiert nicht!"
+}
+
+
+# War vorheriger Befehl erfolgreich?
+Get-Item "nonexistentfile.txt"
+if (-not $?) {
+    Write-Host "Der vorherige Befehl ist fehlgeschlagen!"
+}
+
+# Liste der Fehler
+$Error
+
+# Eigene Fehler-Variable
+Get-Item "nonexistentfile.txt" -ErrorAction SilentlyContinue -ErrorVariable myError
+
+if ($myError) {
+    Write-Host "Es gab einen Fehler: $myError"
+}

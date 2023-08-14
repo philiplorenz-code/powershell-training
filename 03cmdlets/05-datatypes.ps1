@@ -133,4 +133,3 @@ $params = @{
 
 Test-Connection -ComputerName $HashTable.GoogleDNS -Count 2 -Quiet
 Test-Connection @params
-
